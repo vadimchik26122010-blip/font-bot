@@ -1,9 +1,18 @@
 import os
+import asyncio
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-# Токен из переменных окружения Railway
-BOT_TOKEN = os.environ['BOT_TOKEN']
+print("🔄 Starting bot with Python 3.14...")
+
+# Токен из переменных окружения Render
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
+
+if not BOT_TOKEN:
+    print("❌ ERROR: BOT_TOKEN not found!")
+    exit(1)
+
+print("✅ Token found, continuing...")
 
 # КРАСИВЫЕ ШРИФТЫ
 FONTS = {
@@ -247,4 +256,5 @@ def main():
     application.run_polling()
 
 if __name__ == "__main__":
+
     main()
