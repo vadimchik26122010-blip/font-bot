@@ -2,8 +2,11 @@ import os
 import asyncio
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from keep_alive import keep_alive  # ← ДОБАВЬ ЭТУ СТРОКУ
 
-print("🔄 Starting bot with Python 3.14...")
+# Запускаем keep-alive сервер
+keep_alive()  # ← ДОБАВЬ ЭТУ СТРОКУ
+print("🔄 Keep-alive server started!")
 
 # Токен из переменных окружения Render
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
@@ -12,7 +15,7 @@ if not BOT_TOKEN:
     print("❌ ERROR: BOT_TOKEN not found!")
     exit(1)
 
-print("✅ Token found, continuing...")
+print("✅ Bot starting with keep-alive...")
 
 # КРАСИВЫЕ ШРИФТЫ
 FONTS = {
@@ -258,3 +261,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
